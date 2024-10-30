@@ -1,7 +1,6 @@
-from flask import Flask, render_template
+from flask import render_template
 import dao
-
-app = Flask(__name__)
+from saleapp.app import app
 
 
 @app.route("/")
@@ -12,4 +11,5 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    with app.app_context():
+        app.run(debug=True)
