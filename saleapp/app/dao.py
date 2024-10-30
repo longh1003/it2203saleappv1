@@ -1,3 +1,5 @@
+from models import Product
+
 def load_categories():
     return [{
         "id": 1,
@@ -8,8 +10,7 @@ def load_categories():
     }]
 
 
-def load_products():
-    return [{
+data = [{
 
             "id": 1,
             "name": "iPhone 7 Plus",
@@ -62,3 +63,6 @@ def load_products():
             "category_id": 1
 
     }]
+
+for p in data:
+    prod = Produc
