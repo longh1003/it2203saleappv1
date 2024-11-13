@@ -43,29 +43,71 @@ if __name__ == '__main__':
             "image": "https://res.cloudinary.com/dxxwcby8l/image/upload/v1690528735/cg6clgelp8zjwlehqsst.jpg",
             "category_id": 2
         }, {
-            "id": 2,
+            "id": 3,
             "name": "iPad Pro 2021",
             "description": "Apple, 128GB, RAM: 6GB",
             "price": 37000000,
             "image": "https://res.cloudinary.com/dxxwcby8l/image/upload/v1690528735/cg6clgelp8zjwlehqsst.jpg",
             "category_id": 2
         }, {
-            "id": 2,
+            "id": 4,
             "name": "iPad Pro 2022",
             "description": "Apple, 128GB, RAM: 6GB",
             "price": 37000000,
             "image": "https://res.cloudinary.com/dxxwcby8l/image/upload/v1690528735/cg6clgelp8zjwlehqsst.jpg",
             "category_id": 2
         }, {
-            "id": 2,
+            "id": 5,
             "name": "iPad Pro 2023",
             "description": "Apple, 128GB, RAM: 6GB",
             "price": 37000000,
             "image": "https://res.cloudinary.com/dxxwcby8l/image/upload/v1690528735/cg6clgelp8zjwlehqsst.jpg",
             "category_id": 2
         }, {
-            "id": 2,
+            "id": 6,
             "name": "iPad Pro 2024",
+            "description": "Apple, 128GB, RAM: 6GB",
+            "price": 37000000,
+            "image": "https://res.cloudinary.com/dxxwcby8l/image/upload/v1690528735/cg6clgelp8zjwlehqsst.jpg",
+            "category_id": 2
+        }, {
+            "id": 7,
+            "name": "iPhone 8 Plus",
+            "description": "Apple, 32GB, RAM: 3GB, iOS13",
+            "price": 17000000,
+            "image": "https://res.cloudinary.com/dxxwcby8l/image/upload/v1688179242/hclq65mc6so7vdrbp7hz.jpg",
+            "category_id": 1
+        }, {
+            "id": 8,
+            "name": "iPad Pro 2010",
+            "description": "Apple, 128GB, RAM: 6GB",
+            "price": 37000000,
+            "image": "https://res.cloudinary.com/dxxwcby8l/image/upload/v1690528735/cg6clgelp8zjwlehqsst.jpg",
+            "category_id": 2
+        }, {
+            "id": 9,
+            "name": "iPad Pro 2011",
+            "description": "Apple, 128GB, RAM: 6GB",
+            "price": 37000000,
+            "image": "https://res.cloudinary.com/dxxwcby8l/image/upload/v1690528735/cg6clgelp8zjwlehqsst.jpg",
+            "category_id": 2
+        }, {
+            "id": 10,
+            "name": "iPad Pro 2012",
+            "description": "Apple, 128GB, RAM: 6GB",
+            "price": 37000000,
+            "image": "https://res.cloudinary.com/dxxwcby8l/image/upload/v1690528735/cg6clgelp8zjwlehqsst.jpg",
+            "category_id": 2
+        }, {
+            "id": 11,
+            "name": "iPad Pro 2013",
+            "description": "Apple, 128GB, RAM: 6GB",
+            "price": 37000000,
+            "image": "https://res.cloudinary.com/dxxwcby8l/image/upload/v1690528735/cg6clgelp8zjwlehqsst.jpg",
+            "category_id": 2
+        }, {
+            "id": 12,
+            "name": "iPad Pro 2014",
             "description": "Apple, 128GB, RAM: 6GB",
             "price": 37000000,
             "image": "https://res.cloudinary.com/dxxwcby8l/image/upload/v1690528735/cg6clgelp8zjwlehqsst.jpg",

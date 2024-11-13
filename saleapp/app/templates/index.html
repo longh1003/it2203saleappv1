@@ -30,7 +30,7 @@
                 {% endfor %}
             </ul>
             <form method="get" action="/" class="d-flex">
-                <input class="form-control me-2" type="text" placeholder="Tìm sản phẩm..." name="kw" />
+                <input class="form-control me-2" type="text" placeholder="Tìm sản phẩm..." name="kw"/>
                 <button class="btn btn-primary" type="submit">Tìm</button>
             </form>
         </div>
@@ -38,6 +38,13 @@
 </nav>
 
 <section class="container">
+    <section>
+        <ul class="pagination mt-1">
+            {% for i in range(1, page + 1) %}
+            <li class="page-item"><a class="page-link" href="/?page={{ i }}">{{ i }}</a></li>
+            {% endfor %}
+        </ul>
+    </section>
     <div class="row">
         {% for p in products %}
         <div class="col-md-3 col-12 p-2">
