@@ -21,9 +21,9 @@ class Product(db.Model):
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-        # c1 = Category(name='Mobile')
-        # c2 = Category(name='Tablet')
-        # c3 = Category(name='Desktop')
-        #
-        # db.session.add_all([c1, c2, c3])
-        # db.session.commit()
+        c1 = Category(name='Mobile')
+        c2 = Category(name='Tablet')
+        c3 = Category(name='Desktop')
+
+        db.session.add_all([c1, c2, c3])
+        db.session.commit()
