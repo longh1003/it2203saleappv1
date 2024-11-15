@@ -8,7 +8,8 @@ def index():
     cates = dao.load_categories()
 
     kw = request.args.get('kw')
-    prods = dao.load_products(kw)
+    cate_id = request.args.get('category_id')
+    prods = dao.load_products(kw=kw, category_id=cate_id)
     return render_template('index.html', categories=cates, products=prods)
 
 

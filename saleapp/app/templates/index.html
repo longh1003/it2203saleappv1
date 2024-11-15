@@ -21,11 +21,11 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Trang chủ</a>
+                    <a class="nav-link active" href="/">Trang chủ</a>
                 </li>
                 {% for c in categories %}
                 <li class="nav-item">
-                    <a class="nav-link" href="#">{{ c.name }}</a>
+                    <a class="nav-link" href="/?category_id={{c.id}}">{{ c.name }}</a>
                 </li>
                 {% endfor %}
             </ul>
@@ -38,6 +38,7 @@
 </nav>
 
 <section class="container">
+    {% if products %}
     <div class="row">
         {% for p in products %}
         <div class="col-md-3 col-12 p-2">
@@ -53,6 +54,10 @@
         </div>
         {% endfor %}
     </div>
+    {% else %}
+    <div class="alert alert-info mt-1">KHÔNG có sản phẩm nào.</div>
+    {% endif %}
+
 </section>
 
 </body>
