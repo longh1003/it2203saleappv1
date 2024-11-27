@@ -73,4 +73,5 @@ def load_user(user_id):
 
 if __name__ == '__main__':
     with app.app_context():
+        from app import admin
         app.run(debug=True)
