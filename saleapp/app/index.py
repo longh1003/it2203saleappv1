@@ -24,9 +24,8 @@ def index():
                            pages=math.ceil(total/app.config["PAGE_SIZE"]))
 
 
-@app.route("/login", methods=['get', 'post'])
-def login_process():
-    if request.method.__eq__('POST'):
+@app.route("/login-admin", methods=['post'])
+def login__admin_process():
         username = request.form.get('username')
         password = request.form.get('password')
 
@@ -34,9 +33,6 @@ def login_process():
         if u:
             login_user(u)
             return redirect('/')
-
-    return render_template('login.html')
-
 
 @app.route("/logout")
 def logout_process():
