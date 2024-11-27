@@ -1,5 +1,6 @@
 import math
 
+
 from flask import render_template, request, redirect
 import dao
 from app import app, login
@@ -10,6 +11,8 @@ from flask_login import login_user, logout_user
 def index():
     cates = dao.load_categories()
 
+    page = request.args.get('page', 1)
+    cate_id = request.args.get('category_id')
     kw = request.args.get('kw')
     cate_id = request.args.get('category_id')
     page = request.args.get('page', 1)
@@ -65,6 +68,7 @@ def register_process():
 @login.user_loader
 def load_user(user_id):
     return dao.get_user_by_id(user_id)
+
 
 
 if __name__ == '__main__':

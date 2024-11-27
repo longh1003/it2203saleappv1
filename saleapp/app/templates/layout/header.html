@@ -7,6 +7,7 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
+<<<<<<< HEAD
                     <a class="nav-link active" href="/">Trang chủ</a>
                 </li>
                 {% for c in categories %}
@@ -35,6 +36,15 @@
                 </li>
                 {% endif %}
 
+=======
+                    <a class="nav-link active" href="#">Trang chủ</a>
+                </li>
+                {% for c in categories %}
+                <li class="nav-item">
+                    <a class="nav-link" href="#">{{ c.name }}</a>
+                </li>
+                {% endfor %}
+>>>>>>> 08439da80400b773b79643d79c5e0ec56e2c7c4b
             </ul>
             <form method="get" action="/" class="d-flex">
                 <input class="form-control me-2" type="text" placeholder="Tìm sản phẩm..." name="kw"/>

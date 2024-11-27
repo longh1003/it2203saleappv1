@@ -1,3 +1,4 @@
+
 from app.models import Category, Product, User
 from app import app, db
 import hashlib
@@ -11,8 +12,9 @@ def load_categories():
 def load_products(kw=None, category_id=None, page=1):
     products = Product.query
 
+
     if kw:
-        products = products.filter(Product.name.contains(kw))
+        query = query.filter(Product.name.contains(kw))
 
     if category_id:
         products = products.filter(Product.category_id == category_id)
@@ -51,3 +53,4 @@ def add_user(name, username, password, avatar):
 
 def get_user_by_id(id):
     return User.query.get(id)
+
