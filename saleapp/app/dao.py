@@ -1,5 +1,5 @@
-from app.models import Category, Product, User
-from app import app, db
+from models import Category, Product, User
+from saleapp.app import app, db
 import hashlib
 import cloudinary.uploader
 

@@ -1,7 +1,7 @@
-from app import db, app
+from saleapp.app import db, app
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
-from app.models import Category, Product, User, UserRole
+from models import Category, Product, User, UserRole
 from flask_login import current_user, logout_user
 from flask_admin import BaseView, expose
 from flask import redirect

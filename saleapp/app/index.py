@@ -1,9 +1,9 @@
 import math
 from flask import render_template, request, redirect, session, jsonify
 import dao, utils
-from app import app, login
+from saleapp.app import app, login
 from flask_login import login_user, logout_user
-from app.models import UserRole
+from models import UserRole
 
 
 @app.route("/")
@@ -130,5 +130,5 @@ def common_response_data():
 
 if __name__ == '__main__':
     with app.app_context():
-        from app import admin
+        from saleapp.app import admin
         app.run(debug=True)
