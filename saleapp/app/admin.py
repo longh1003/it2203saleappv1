@@ -51,3 +51,4 @@ admin.add_view(ProductView(Product, db.session))
 admin.add_view(AuthenticatedView(User, db.session))
 admin.add_view(StatsView(name='Thống kê - báo cáo'))
 admin.add_view(LogoutView(name='Đăng xuất'))
+

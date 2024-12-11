@@ -27,6 +27,7 @@ class Category(db.Model):
     name = Column(String(50), nullable=False, unique=True)
     products = relationship('Product', backref='category', lazy=True)
 
+    #ghi de toString
     def __str__(self):
         return self.name
 

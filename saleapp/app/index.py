@@ -19,9 +19,8 @@ def index():
                            pages=math.ceil(total/app.config["PAGE_SIZE"]))
 
 
-@app.route("/login", methods=['get', 'post'])
-def login_process():
-    if request.method.__eq__('POST'):
+@app.route("/login-admin", methods=['post'])
+def login__admin_process():
         username = request.form.get('username')
         password = request.form.get('password')
 
@@ -30,7 +29,7 @@ def login_process():
             login_user(u)
             return redirect('/')
 
-    return render_template('login.html')
+        return render_template('login.html')
 
 
 @app.route("/login-admin", methods=['post'])
@@ -131,4 +130,5 @@ def common_response_data():
 if __name__ == '__main__':
     with app.app_context():
         from saleapp.app import admin
+
         app.run(debug=True)
