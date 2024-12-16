@@ -1,4 +1,4 @@
-from models import Category, Product, User
+from models import Category, Product, User, Receipt, ReceiptDetails
 from saleapp.app import app, db
 import hashlib
 import cloudinary.uploader
@@ -53,6 +53,11 @@ def add_user(name, username, password, avatar):
 
     db.session.add(u)
     db.session.commit()
+
+
+def add_receipt(cart):
+    if cart:
+        r = Receipt(user=current_user)
 
 
 def get_user_by_id(id):

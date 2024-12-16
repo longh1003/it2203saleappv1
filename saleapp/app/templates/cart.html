@@ -21,7 +21,7 @@
                 <input type="number" value="{{ c.quantity }}" class="form-control" />
             </td>
             <td>
-                <button  class="btn btn-danger">&times;</button>
+                <button  class="btn btn-danger" onclick="deleteCart({{ c.id }})">&times;</button>
             </td>
         </tr>
         {% endfor %}
@@ -31,10 +31,13 @@
     <h3>Tổng tiền: {{ "{:,.0f}".format(cart_stats.total_amount) }} VNĐ</h3>
     <h3>Tổng số lượng: {{ cart_stats.total_quantity }}</h3>
 </div>
-
+{% if current_user.is_authenticated%}
 <div class="mt-1">
     <button class="btn btn-success">Thanh toán</button>
 </div>
+{% else %}
+<p>Vui lòng <a href="/login?next=/cart">đăng nhập</a> để thanh toán</p>
+{% endif %}
 {% else %}
 <div  class="alert alert-info mt-1">KHÔNG có sản phẩm trong giỏ!</div>
 {% endif %}

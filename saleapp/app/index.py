@@ -19,17 +19,19 @@ def index():
                            pages=math.ceil(total/app.config["PAGE_SIZE"]))
 
 
-@app.route("/login-admin", methods=['post'])
-def login__admin_process():
+@app.route("/login", methods=['get', 'post'])
+def login_process():
+    if request.method.__eq__('POST'):
         username = request.form.get('username')
         password = request.form.get('password')
 
         u = dao.auth_user(username=username, password=password)
         if u:
             login_user(u)
-            return redirect('/')
+            next = request.args.get('next')
+            return redirect('/' if next is None else next)
 
-        return render_template('login.html')
+    return render_template('login.html')
 
 
 @app.route("/login-admin", methods=['post'])
@@ -107,6 +109,16 @@ def add_to_cart():
     session['cart'] = cart
 
     return jsonify(utils.cart_stats(cart))
+
+@app.route('/api/carts/<product_id>', methods=['delete'])
+def delete_cart(product_id):
+        cart = session.get('cart')
+        if cart and product_id in cart:
+            del cart[product_id]
+
+        session['cart'] = cart
+
+        return jsonify(utils.cart_stats(cart))
 
 
 @app.route('/cart')
