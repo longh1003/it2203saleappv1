@@ -132,15 +132,6 @@ def add_to_cart():
 
     return jsonify(utils.cart_stats(cart))
 
-@app.route('/api/carts/<product_id>', methods=['delete'])
-def delete_cart(product_id):
-        cart = session.get('cart')
-        if cart and product_id in cart:
-            del cart[product_id]
-
-        session['cart'] = cart
-
-        return jsonify(utils.cart_stats(cart))
 
 
 @app.route("/api/carts/<product_id>", methods=['put'])

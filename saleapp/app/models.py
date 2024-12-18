@@ -48,20 +48,6 @@ class Product(db.Model):
     def __str__(self):
         return self.name
 
-class Receipt(db.Model):
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    user_id = Column(Integer, ForeignKey(User.id), nullable=False)
-    created_date = Column(DateTime, default=datetime.now())
-    details = relationship('ReceiptDetails', backref='receipt', lazy=True)
-
-class ReceiptDetails(db.Model):
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    product_id = Column(Integer, ForeignKey(Product.id), nullable=False)
-    receipt_id = Column(Integer, ForeignKey(Receipt.id), nullable=False)
-    quantity = Column(Integer, default=0)
-    unit_price = Column(Float, default=0)
-
-
 
 class Receipt(db.Model):
     id = Column(Integer, primary_key=True, autoincrement=True)
@@ -90,18 +76,18 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
 
-        # u = User(name='admin', username='admin', password=str(hashlib.md5('123456'.encode('utf-8')).hexdigest()),
-        #          user_role=UserRole.ADMIN)
-        # db.session.add(u)
-        # db.session.commit()
-        #
-        # c1 = Category(name='Mobile')
-        # c2 = Category(name='Tablet')
-        # c3 = Category(name='Desktop')
-        #
-        # db.session.add_all([c1, c2, c3])
-        # db.session.commit()
-        #
+        u = User(name='admin', username='admin', password=str(hashlib.md5('123456'.encode('utf-8')).hexdigest()),
+                 user_role=UserRole.ADMIN)
+        db.session.add(u)
+        db.session.commit()
+
+        c1 = Category(name='Mobile')
+        c2 = Category(name='Tablet')
+        c3 = Category(name='Desktop')
+
+        db.session.add_all([c1, c2, c3])
+        db.session.commit()
+
         # data = [{
         #     "name": "iPhone 7 Plus",
         #     "description": "Apple, 32GB, RAM: 3GB, iOS13",
@@ -146,9 +132,9 @@ if __name__ == '__main__':
         #     db.session.add(prod)
         #
         # db.session.commit()
-
-        c1 = Comment(content='good', product_id=1, user_id=1)
-        c2 = Comment(content='nice', product_id=1, user_id=1)
-        c3 = Comment(content='excellent', product_id=1, user_id=1)
-        db.session.add_all([c1, c2, c3])
-        db.session.commit()
+        #
+        # c1 = Comment(content='good', product_id=1, user_id=1)
+        # c2 = Comment(content='nice', product_id=1, user_id=1)
+        # c3 = Comment(content='excellent', product_id=1, user_id=1)
+        # db.session.add_all([c1, c2, c3])
+        # db.session.commit()
