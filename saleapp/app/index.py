@@ -1,9 +1,9 @@
 import math
 from flask import render_template, request, redirect, session, jsonify
 import dao, utils
-from app import app, login
 from flask_login import login_user, logout_user, login_required
-from app.models import UserRole
+from saleapp.app import app, login
+from models import UserRole
 
 
 @app.route("/")
@@ -132,6 +132,16 @@ def add_to_cart():
 
     return jsonify(utils.cart_stats(cart))
 
+@app.route('/api/carts/<product_id>', methods=['delete'])
+def delete_cart(product_id):
+        cart = session.get('cart')
+        if cart and product_id in cart:
+            del cart[product_id]
+
+        session['cart'] = cart
+
+        return jsonify(utils.cart_stats(cart))
+
 
 @app.route("/api/carts/<product_id>", methods=['put'])
 def update_cart(product_id):
@@ -190,5 +200,6 @@ def common_response_data():
 
 if __name__ == '__main__':
     with app.app_context():
-        from app import admin
+        from saleapp.app import admin
+
         app.run(debug=True)

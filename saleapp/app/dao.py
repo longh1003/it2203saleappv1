@@ -1,5 +1,6 @@
-from app.models import Category, Product, User, Receipt, ReceiptDetails, Comment
-from app import app, db
+from models import Category, Product, User, Receipt, ReceiptDetails, Comment
+from saleapp.app import app, db
+
 import hashlib
 import cloudinary.uploader
 from flask_login import current_user
@@ -14,8 +15,9 @@ def load_categories():
 def load_products(kw=None, category_id=None, page=1):
     products = Product.query
 
+
     if kw:
-        products = products.filter(Product.name.contains(kw))
+        query = query.filter(Product.name.contains(kw))
 
     if category_id:
         products = products.filter(Product.category_id == category_id)
@@ -36,6 +38,7 @@ def auth_user(username, password, role=None):
 
     u = User.query.filter(User.username.__eq__(username.strip()),
                           User.password.__eq__(password))
+
     if role:
         u = u.filter(User.user_role.__eq__(role))
 

@@ -1,7 +1,7 @@
-from app import db, app, dao
+from saleapp.app import db, app, dao
 from flask_admin import Admin, AdminIndexView
 from flask_admin.contrib.sqla import ModelView
-from app.models import Category, Product, User, UserRole
+from models import Category, Product, User, UserRole
 from flask_login import current_user, logout_user
 from flask_admin import BaseView, expose
 from flask import redirect
@@ -58,3 +58,4 @@ admin.add_view(ProductView(Product, db.session))
 admin.add_view(AuthenticatedView(User, db.session))
 admin.add_view(StatsView(name='Thống kê - báo cáo'))
 admin.add_view(LogoutView(name='Đăng xuất'))
+

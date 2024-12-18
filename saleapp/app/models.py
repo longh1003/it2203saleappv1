@@ -1,7 +1,7 @@
 import random
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column, Integer, String, Float, ForeignKey, Enum, DateTime
-from app import db, app
+from saleapp.app import db, app
 from enum import Enum as RoleEnum
 import hashlib
 from flask_login import UserMixin
@@ -30,6 +30,7 @@ class Category(db.Model):
     name = Column(String(50), nullable=False, unique=True)
     products = relationship('Product', backref='category', lazy=True)
 
+    #ghi de toString
     def __str__(self):
         return self.name
 
@@ -46,6 +47,20 @@ class Product(db.Model):
 
     def __str__(self):
         return self.name
+
+class Receipt(db.Model):
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    user_id = Column(Integer, ForeignKey(User.id), nullable=False)
+    created_date = Column(DateTime, default=datetime.now())
+    details = relationship('ReceiptDetails', backref='receipt', lazy=True)
+
+class ReceiptDetails(db.Model):
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    product_id = Column(Integer, ForeignKey(Product.id), nullable=False)
+    receipt_id = Column(Integer, ForeignKey(Receipt.id), nullable=False)
+    quantity = Column(Integer, default=0)
+    unit_price = Column(Float, default=0)
+
 
 
 class Receipt(db.Model):
@@ -74,8 +89,6 @@ class Comment(db.Model):
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-
-
 
         # u = User(name='admin', username='admin', password=str(hashlib.md5('123456'.encode('utf-8')).hexdigest()),
         #          user_role=UserRole.ADMIN)
